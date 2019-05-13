@@ -49,6 +49,7 @@ install:
 
   # start php server for non php >=5.4 version
   - wget https://github.com/phpList/phplist3/archive/master.tar.gz && tar -xzf master.tar.gz && mv phplist3-master phplist && rm master.tar.gz
+  - cd phplist
   - cd public_html
   - cp -fv tests/travis-ci/behat.yml behat.yml
   - cp -fv tests/travis-ci/config.php public_html/lists/config/config.php
