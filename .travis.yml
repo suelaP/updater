@@ -48,6 +48,10 @@ install:
   - composer install --prefer-dist --no-interaction
 
   # start php server for non php >=5.4 version
+  - mkdir public_html
+  - cd public_html/ && wget https://github.com/phpList/phplist3/archive/master.tar.gz
+    && tar -xzf phplist3-master.tar.gz && mv phplist3-master lists &&
+    rm phplist3-master.tar.gz && cd ../
   - cp -fv tests/travis-ci/behat.yml behat.yml
   - cp -fv tests/travis-ci/config.php public_html/lists/config/config.php
   - php -S localhost:8000 -t public_html > /dev/null 2>&1 &
