@@ -48,10 +48,10 @@ install:
   - composer install --prefer-dist --no-interaction
 
   # start php server for non php >=5.4 version
-  - mkdir public_html
-  - cd public_html/ && wget https://github.com/phpList/phplist3/archive/master.tar.gz
-    && tar -xzf master.tar.gz && mv phplist3-master lists &&
-    rm master.tar.gz && cd ../
+  - mkdir phplist
+  - cd phplist/ && wget https://github.com/phpList/phplist3/archive/master.tar.gz
+    && tar -xzf master.tar.gz && mv phplist3-master public_html &&
+    rm master.tar.gz
   - pwd
   - ls 
   - cd public_html
