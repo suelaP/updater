@@ -66,9 +66,9 @@ install:
     && tar -xzf master.tar.gz && mv phplist-ui-bootlist-master phplist-ui-bootlist &&
     rm master.tar.gz && cd ../../../../../
   - ls
-  - pwd
-  - mv index.php phplist/public_html/lists/updater
-  - mv images phplist/public_html/lists/updater
+  - cd phplist
+  - ls
+  - mv images phplist/public_html/lists/updater/
   - ls
   - cd vendor/bin && ln -s ../njoannidi/php-lint-bash/phpLint && cd ../../
   - mysql -e 'SET GLOBAL wait_timeout = 5400;'
