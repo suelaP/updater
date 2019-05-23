@@ -72,6 +72,10 @@ install:
   - ls 
   - pwd 
   - cd ../../../
+  - cd tests/features/getting-started/
+  - rm fetchtranslations.feature
+  - rm publicPages.feature
+  - cd ../../../
   - pwd 
   - mv index.php phplist/public_html/lists/updater/
   - ls
