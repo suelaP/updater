@@ -71,7 +71,7 @@ install:
   - mkdir updater
   - ls 
   - pwd 
-  - cd ../../../../
+  - cd ../../../
   - pwd 
   - mv index.php phplist/public_html/lists/updater/
   - ls
