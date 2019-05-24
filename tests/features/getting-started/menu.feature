@@ -78,7 +78,6 @@ Feature: Navigate the app using the menu
         Then I should see "<Innerpages>"
         Examples:
          | Innerpages                         |
-         | Checklist                          |
          | Settings                           |
          | Manage plugins                     |
          | Subscribe pages                    |
