@@ -18,7 +18,7 @@
   },
   "minimum-stability": "dev",
   "require": {
-    "php": "^5.3.3 || ^7.0"
+    "php": "^5.3.3 || ^7.3"
   },
   "require-dev": {
     "behat/mink": "@stable",
@@ -32,7 +32,8 @@
     "se/selenium-server-standalone": "^2.52",
     "enm1989/chromedriver": "^2.36",
     "bex/behat-screenshot": "^1.2",
-    "zbateson/mail-mime-parser": "^1.1"
+    "zbateson/mail-mime-parser": "^1.1",
+    "phpList/phplist3":"dev-master"
   },
   "prefer-stable": true,
   "config": {
