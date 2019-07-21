@@ -13,8 +13,7 @@ php:
 before_script:
   - sudo apt-get update > /dev/null
   - composer self-update
-  - composer install --prefer-dist
-
+  - composer install
 script:
   - vendor/njoannidi/php-lint-bash/phpLint 
 
