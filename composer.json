@@ -27,7 +27,7 @@
         }
     ],
   "require": {
-        "phpList/phplist3": "dev-master"
+        "phpList/phplist3[dev-master]"
     },
 
   "require-dev": {
