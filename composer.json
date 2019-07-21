@@ -20,6 +20,16 @@
   "require": {
     "php": "^5.3.3 || ^7.3"
   },
+  "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/phpList/phplist3"
+        }
+    ],
+  "require": {
+        "phpList/phplist3": "dev-master"
+    },
+
   "require-dev": {
     "behat/mink": "@stable",
     "behat/mink-goutte-driver": "@stable",
@@ -32,8 +42,7 @@
     "se/selenium-server-standalone": "^2.52",
     "enm1989/chromedriver": "^2.36",
     "bex/behat-screenshot": "^1.2",
-    "zbateson/mail-mime-parser": "^1.1",
-    "phpList/phplist3":"dev-0bec52b8a556ea65f03dc595fb5bda663ea9fbf1"
+    "zbateson/mail-mime-parser": "^1.1"
   },
   "prefer-stable": true,
   "config": {
