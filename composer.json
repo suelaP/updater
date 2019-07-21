@@ -33,7 +33,7 @@
     "enm1989/chromedriver": "^2.36",
     "bex/behat-screenshot": "^1.2",
     "zbateson/mail-mime-parser": "^1.1",
-    "phpList/phplist3":"master"
+    "phpList/phplist3":"dev-release-3.4.4"
   },
   "prefer-stable": true,
   "config": {
