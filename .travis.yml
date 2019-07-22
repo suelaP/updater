@@ -1,0 +1,65 @@
+language: php
+
+cache:
+    directories:
+      - "$HOME/.composer/cache"
+
+matrix:
+    include:
+        - php: '5.4'
+          env: BROWSER=goutte TAGS="~javascript && ~@first-run && ~@wip"
+        - php: '5.5' 
+          env: BROWSER=goutte TAGS="~javascript && ~@first-run && ~@wip"
+        - php: '5.6'
+          env: BROWSER=goutte TAGS="~javascript && ~@first-run && ~@wip"
+        - php: '7.0'
+          env: BROWSER=goutte TAGS="~javascript && ~@first-run && ~@wip"
+        - php: '7.1'
+          env: BROWSER=goutte TAGS="~javascript && ~@first-run && ~@wip"
+        - php: '7.1'
+          env: BROWSER=chrome TAGS="~@first-run && ~@wip"
+        - php: '7.2'
+          env: BROWSER=goutte TAGS="~javascript && ~@first-run && ~@wip"
+        - php: '7.2'
+          env: BROWSER=chrome TAGS="~@first-run && ~@wip"
+        - php: '7.3'
+          env: BROWSER=goutte TAGS="~javascript && ~@first-run && ~@wip"
+        - php: '7.3'
+          env: BROWSER=chrome TAGS="~@first-run && ~@wip"
+
+
+notifications:
+  slack:
+    rooms:
+      secure: "LegKwsGSAQDcqUGA8Jg90XUWfhnmho5U+RXKpuRfAT4L5Z8j761AVGIwTrUWw8gnxeGccr3smTWahm+GYuwMvg8YDxcygPuVn3U+fus0qgqAnfkQLmMl4vSdkZfO1GTc7YkyLAJcmwdDeUgXr94gQ4qvmsTSk8E0gzIstdfFiOU="
+  on_success: change
+  on_failure: always
+
+before_install:
+  - sudo apt-get update -qq
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 2000x2000x16"
+  - phpenv config-rm xdebug.ini || echo "xdebug not available"
+  - if [[ $TRAVIS_PHP_VERSION = hhvm* ]]; then export INI=/etc/hhvm/php.ini; else export INI=~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi
+  - echo memory_limit = -1 >> $INI
+
+install:
+  # install dependencies
+  - composer install --prefer-dist --no-interaction
+
+  # start selenium and php server
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=:99.0"
+  - ./bin/start-selenium > /dev/null 2>&1 &
+  - sleep 5
+
+before_script:
+  - cd ${TRAVIS_BUILD_DIR}
+
+script:
+  - vendor/njoannidi/php-lint-bash/phpLint 
+
+addons:
+  chrome: stable
+
+after_failure:
+   - echo "Failures detected."
