@@ -99,7 +99,7 @@ before_script:
 
 script:
   # check syntax
-  - ./vendor/bin/phpLint ./public_html
+  - ./vendor/bin/phpLint ./phplist/public_html
 
   # run setup feature first to create database
   - ./vendor/bin/behat -n -fprogress -p $BROWSER --strict --tags=@first-run
