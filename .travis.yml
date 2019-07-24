@@ -75,7 +75,8 @@ install:
   - ls
   - cd public_html/lists/
   - mkdir updater
-  - cd ../../
+  - cd ../../../
+  - ls
   - mv index.php phplist/public_html/lists/updater
   - mv images phplist/public_html/lists/updater
   - ls
