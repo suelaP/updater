@@ -54,8 +54,9 @@ install:
   - composer install --prefer-dist --no-interaction
 
   # start php server for non php >=5.4 version
-  - cp -fv phplist/tests/travis-ci/behat.yml behat.yml
-  - cp -fv phplist/tests/travis-ci/config.php public_html/lists/config/config.php
+  - cd phplist
+  - cp -fv tests/travis-ci/behat.yml behat.yml
+  - cp -fv tests/travis-ci/config.php public_html/lists/config/config.php
   - ls
   - pwd
   - php -S localhost:8000 -t public_html > /dev/null 2>&1 &
