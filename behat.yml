@@ -60,7 +60,7 @@ chrome:
     extensions:
         Behat\MinkExtension:
             browser_name: chrome
-            default_session: chrome
+            default_session: ~
 firefox:
     extensions:
         Behat\MinkExtension:
