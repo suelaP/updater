@@ -51,18 +51,3 @@ default:
                             version: ""
                             marionette: true
 
-goutte:
-    extensions:
-        Behat\MinkExtension:
-            default_session: goutte
-
-chrome:
-    extensions:
-        Behat\MinkExtension:
-            browser_name: chrome
-            default_session: chrome
-firefox:
-    extensions:
-        Behat\MinkExtension:
-            default_session: firefox
-            browser_name: firefox
