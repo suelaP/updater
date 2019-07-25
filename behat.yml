@@ -1,0 +1,68 @@
+default:
+    autoload:
+        - %paths.base%/tests/features/bootstrap
+    suites:
+        default:
+            paths:
+                - %paths.base%/tests/features
+            contexts:
+                - FeatureContext:
+                    # Set database access credentials
+                    database:
+                        host: 127.0.0.1
+                        user: phplist
+                        password: phplist
+                        name: phplistdb
+                    # Set admin user login credentials
+                    admin:
+                        username: admin
+                        password: aleus.aleus
+                - MailContext:
+                    mail_dir: %paths.base%/build/mails
+                - SubscriberContext
+                - UserContext
+    extensions:
+        Bex\Behat\ScreenshotExtension:
+            image_drivers:
+                local:
+                    # Where screenshots taken in case of failure will be stored on disk
+                    screenshot_directory: build/screenshot
+                    # This enables removing all images before each test run. False by default
+                    clear_screenshot_directory: true
+
+        Behat\MinkExtension:
+            files_path: %paths.base%/tests/files/
+            base_url:  'http://localhost/'
+            show_cmd: google-chrome %s
+            browser_name: 'chrome'
+            #javascript_session: selenium2
+            sessions:
+               default:
+                   #goutte:~
+                   selenium2: ~ 
+               javascript:
+                   selenium2:
+                        # Change this to Firefox if necessary
+                        capabilities: { "browser": "chrome" }  
+               firefox:
+                    selenium2:
+                        capabilities:
+                            browser: firefox
+                            version: ""
+                            marionette: true
+
+goutte:
+    extensions:
+        Behat\MinkExtension:
+            default_session: goutte
+
+chrome:
+    extensions:
+        Behat\MinkExtension:
+            browser_name: chrome
+            default_session: chrome
+firefox:
+    extensions:
+        Behat\MinkExtension:
+            default_session: firefox
+            browser_name: firefox
