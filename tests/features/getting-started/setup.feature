@@ -7,7 +7,7 @@ Feature: Setup
   Scenario: Go to dashboard
     When I recreate the database
     Given I am on "/lists/admin/"
-    Then I should see "Database has not been initialised. go to Initialise Database to continue"
+    Then I should see "Database has not been initialised"
 
   Scenario: Launch the initialisation
     Given I am on "/lists/admin/"
