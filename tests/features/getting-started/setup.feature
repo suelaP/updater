@@ -1,4 +1,4 @@
-@first-run
+@first-run @javascript
 Feature: Setup
   In order to setup phplist
   As an admin user
