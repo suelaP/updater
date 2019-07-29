@@ -14,6 +14,7 @@ Feature: Navigate the app using the menu
       | statistics                |
       | system                    |
       | config                    |
+      | update                    |
      Then I should see "Recently Visited"
      Then I should see "logout"
      Then I should see "Dashboard"
