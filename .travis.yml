@@ -77,6 +77,7 @@ install:
   - ls
   - cd vendor/bin && ln -s ../njoannidi/php-lint-bash/phpLint && cd ../../
   - pwd
+  - cd phplist
   - mysql -e 'SET GLOBAL wait_timeout = 5400;'
   - mysql -e 'create database phplistdb;'
   - mysql -u root -e "CREATE USER 'phplist'@'localhost' IDENTIFIED BY 'phplist';"
@@ -93,7 +94,7 @@ before_script:
 
 script:
   # check syntax
-  - ./vendor/bin/phpLint ./public_html
+  - ./vendor/bin/phpLint ./phplist/public_html
 
   # run setup feature first to create database
   - ./vendor/bin/behat -n -fprogress -p $BROWSER --strict --tags=@first-run
