@@ -355,13 +355,7 @@ class FeatureContext extends MinkContext
     {
         $this->getSession()->wait(5000, '(0 === jQuery.active)');
     }
-    /**
-     * @Given I visit :path
-     */
-    public function iVisit($path)
-    {
-         $this->getSession()->visit('/lists');
-    }
+    
      /**
      * @Given I go back
      */
@@ -369,5 +363,13 @@ class FeatureContext extends MinkContext
     {
         $this->getSession()->getDriver()->back();
     }
-  
+
+     /**
+     * @When I confirm the popup
+     */
+    public function iConfirmPopup()
+    {  
+        $this->getSession()->getDriver()->getWebDriverSession()->accept_alert();
+    }
+
 }

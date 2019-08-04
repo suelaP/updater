@@ -14,7 +14,7 @@ Feature: Navigate the app using the menu
       | statistics                |
       | system                    |
       | config                    |
-      | update                    |
+      | develop                   |
      Then I should see "Recently Visited"
      Then I should see "logout"
      Then I should see "Dashboard"
@@ -30,7 +30,7 @@ Feature: Navigate the app using the menu
          | Manage subscribers        |
          | Configure attributes      |
          | Subscriber lists          |
-         | Import subscribers        |
+         | Import emails             |
          | Export subscribers        |
          | View bounces per list     |
          | Suppression List          |
@@ -79,6 +79,7 @@ Feature: Navigate the app using the menu
         Then I should see "<Innerpages>"
         Examples:
          | Innerpages                         |
+         | Configuration                      |
          | Settings                           |
          | Manage plugins                     |
          | Subscribe pages                    |
@@ -89,4 +90,13 @@ Feature: Navigate the app using the menu
          | Check bounce rules                 |
          | Categorise lists                   |
     
+    Scenario Outline: Browse Develop menu
+        Given I have logged in as an administrator
+        Given I follow "Develop"
+        Then I should see "<Innerpages>"
+        Examples:
+         | Innerpages                |
+         | Subscriber statistics     |
+         | tests                     |
+         
     
