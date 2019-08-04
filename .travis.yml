@@ -63,13 +63,17 @@ install:
   - mkdir -p build/screenshot
   - pwd
   - ls 
-  - wget https://github.com/phpList/phplist3/archive/master.tar.gz && tar -xzf master.tar.gz && mv phplist3-master phplist &&
+  - wget https://github.com/phpList/phplist3/archive/master.tar.gz && tar -xzf master.tar.gz && mv phplist3-master tmp &&
     rm master.tar.gz
-  - cd phplist/public_html/lists/admin/ui/ && wget https://github.com/phpList/phplist-ui-bootlist/archive/master.tar.gz
+  - cd tmp/public_html/lists/admin/ui/ && wget https://github.com/phpList/phplist-ui-bootlist/archive/master.tar.gz
     && tar -xzf master.tar.gz && mv phplist-ui-bootlist-master phplist-ui-bootlist &&
     rm master.tar.gz && cd ../../../../
   - pwd
   - ls
+  - cd ..
+  - pwd
+  - ls
+  - mv updater phplist
   - cd vendor/bin && ln -s ../njoannidi/php-lint-bash/phpLint && cd ../../
   - mysql -e 'SET GLOBAL wait_timeout = 5400;'
   - mysql -e 'create database phplistdb;'
