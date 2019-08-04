@@ -70,7 +70,7 @@ install:
     rm master.tar.gz && cd ../../../../
   - pwd
   - ls
-  - cd ..
+  - cd ../../
   - pwd
   - ls
   - mv updater phplist
