@@ -49,9 +49,9 @@ install:
   - composer install --prefer-dist --no-interaction
 
   # start php server for non php >=5.4 version
-  #- cp -fv tests/travis-ci/behat.yml behat.yml
-  #- cp -fv tests/travis-ci/config.php public_html/lists/config/config.php
-  - php -S localhost:8000 -t public_html > /dev/null 2>&1 &
+  - cp -fv tests/travis-ci/behat.yml behat.yml
+  - cp -fv tests/travis-ci/config.php tmp/public_html/lists/config/config.php
+  - php -S localhost:8000 -t tmp/public_html > /dev/null 2>&1 &
 
   # start selenium and php server
   - "sh -e /etc/init.d/xvfb start"
