@@ -53,7 +53,8 @@ install:
     rm master.tar.gz
   - ls
   - cp -fv tests/travis-ci/behat.yml behat.yml
-  - cp -fv tests/travis-ci/config.php public_html/lists/config/config.php
+  - cp -fv tests/travis-ci/config.php phplist/public_html/lists/config/config.php
+  - ls
   - php -S localhost:8000 -t public_html > /dev/null 2>&1 &
 
   # start selenium and php server
