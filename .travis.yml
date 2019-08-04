@@ -90,7 +90,7 @@ install:
   - ls 
   - mv index.php public_html/lists/updater/
   - ls
-  - mv -r images/ public_html/lists/updater/
+  - mv images/ public_html/lists/updater/
   - ls
   - cd vendor/bin && ln -s ../njoannidi/php-lint-bash/phpLint && cd ../../
   - mysql -e 'SET GLOBAL wait_timeout = 5400;'
