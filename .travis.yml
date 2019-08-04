@@ -95,7 +95,7 @@ before_script:
   - mkdir -p build/mails
   - cd build/mails
   - smtp-sink -d "%d.%H.%M.%S" localhost:2500 1000 &
-  - cd ${TRAVIS_BUILD_DIR}
+  - cd phplist
 
 script:
   # check syntax
