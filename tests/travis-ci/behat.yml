@@ -9,7 +9,7 @@ default:
                 - FeatureContext:
                     # Set database access credentials
                     database:
-                        host: 127.0.0.1
+                        host: 127.0.0.0
                         user: phplist
                         password: phplist
                         name: phplistdb
@@ -31,7 +31,7 @@ default:
                     clear_screenshot_directory: true
 
         Behat\MinkExtension:
-            base_url:  'http://127.0.0.1'
+            base_url:  'http://127.0.0.0'
             default_session: goutte
             goutte: ~
             sessions:
