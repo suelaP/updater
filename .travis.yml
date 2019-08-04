@@ -48,10 +48,12 @@ install:
   - composer install --prefer-dist --no-interaction
 
   # start php server for non php >=5.4 version
-  - cd ..
+  - cd ../../
   - ls
   - pwd 
   - wget https://github.com/phpList/phplist3/archive/master.tar.gz && tar -xzf master.tar.gz && mv phplist3-master phplist && rm master.tar.gz
+  - ls
+  - pwd
   - cd phplist
   - cd public_html/lists/admin/ui/ && wget https://github.com/phpList/phplist-ui-bootlist/archive/master.tar.gz && tar -xzf master.tar.gz && mv      phplist-ui-bootlist-master phplist-ui-bootlist && rm master.tar.gz && cd ../../../../../
   #- cp -fv tests/travis-ci/behat.yml behat.yml
