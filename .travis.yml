@@ -97,10 +97,10 @@ script:
   - ./vendor/bin/phpLint ./phplist/public_html
 
   # run setup feature first to create database
-  - ./vendor/bin/behat -n -fprogress -p $BROWSER --strict --tags=@first-run
+  - ./phplist/vendor/bin/behat -n -fprogress -p $BROWSER --strict --tags=@first-run
 
   # run all feature except @first-run
-  - ./vendor/bin/behat -n -fprogress -p $BROWSER --strict --tags="${TAGS}"
+  - ./phplist/vendor/bin/behat -n -fprogress -p $BROWSER --strict --tags="${TAGS}"
 addons:
   chrome: stable
 
