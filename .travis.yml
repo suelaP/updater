@@ -59,6 +59,7 @@ install:
   - mkdir updater
   - cd ../../../
   - mv index.php phplist/public_html/lists/updater/
+  - mv images/  phplist/public_html/lists/updater/  
   - pwd 
   - ls
   - php -S localhost:8000 -t public_html > /dev/null 2>&1 &
