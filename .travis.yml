@@ -74,7 +74,11 @@ install:
   - mv phplist/tmp/public_html phplist
   - pwd
   - ls
-  - cd phplist
+  - cd phplist/tmp
+  - ls 
+  - mv bin/ /home/travis/build/suelaP/phplist/
+  - ls 
+  - cd ..
   - rm -r tmp/
   - pwd
   - ls
@@ -100,6 +104,13 @@ before_script:
   - cd build/mails
   - smtp-sink -d "%d.%H.%M.%S" localhost:2500 1000 &
   - cd /home/travis/build/suelaP/phplist
+  
+  # start selenium and php server
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=:99.0"
+  - ./bin/start-selenium > /dev/null 2>&1 &
+  - sleep 5
+
 
   # start php server for non php >=5.4 version
   - cp -fv tests/travis-ci/behat.yml behat.yml
